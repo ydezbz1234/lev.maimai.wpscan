@@ -30,7 +30,7 @@ def raw(argv:list[str]) -> Cr:
         data = {"result": stdoutdata}
         ctx.update(data)
        
-    return Cr("talentsec/lev.maimai.wpscan:1.0", entry=entry(argv))
+    return Cr("talentsec/lev.maimai.wpscan:v1.0", entry=entry(argv))
 
 
 @annot.meta(desc="wpscan 枚举包含有已知漏洞的插件", params=[
@@ -55,7 +55,7 @@ def enum_plugin(url:str, token:str="") -> Cr:
         stdoutdata, stderrdata = p.communicate()
         data = {"result": stdoutdata}
         ctx.update(data)
-    return Cr("talentsec/lev.maimai.wpscan:1.0", entry=entry(url, token))
+    return Cr("talentsec/lev.maimai.wpscan:v1.0", entry=entry(url, token))
 
 
 @annot.meta(desc="wpscan 枚举包含有已知漏洞的主题", params=[
@@ -82,7 +82,7 @@ def enum_themes(url:str, token:str="") -> Cr:
         stdoutdata, stderrdata = p.communicate()
         data = {"result": stdoutdata}
         ctx.update(data)
-    return Cr("talentsec/lev.maimai.wpscan:1.0", entry=entry(url, token))
+    return Cr("talentsec/lev.maimai.wpscan:v1.0", entry=entry(url, token))
 
 
 @annot.meta(desc="wpscan 密码爆破", params=[
@@ -102,7 +102,7 @@ def password_brute(url:str) -> Cr:
         stdoutdata, stderrdata = p.communicate()
         data = {"result": stdoutdata}
         ctx.update(data)
-    return Cr("talentsec/lev.maimai.wpscan:1.0", entry=entry(url))
+    return Cr("talentsec/lev.maimai.wpscan:v1.0", entry=entry(url))
 
 @annot.meta(desc="wpscan 用户名枚举", params=[
     annot.Param("url", "进行检测的URL", holder="https://www.example.com"),
@@ -121,7 +121,7 @@ def username_brute(url:str) -> Cr:
         stdoutdata, stderrdata = p.communicate()
         data = {"result": stdoutdata}
         ctx.update(data)
-    return Cr("talentsec/lev.maimai.wpscan:1.0", entry=entry(url))
+    return Cr("talentsec/lev.maimai.wpscan:v1.0", entry=entry(url))
 
 __lev__ = annot.meta([raw, enum_plugin, enum_themes, password_brute, username_brute],
                      desc="wpscan",
