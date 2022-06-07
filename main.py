@@ -3,24 +3,30 @@ import levrt
 from lev.maimai.wpscan import wpscan
 
 async def raw():
-    doc = await wpscan.raw(["--url", "https://quail.co.jp/"])
+    doc = await wpscan.raw(["--url", "https://www.scpronet.com/wordpress/"])
     data = await doc.get()
     print(data)
 
-async def enumVulByPlugin():
-    doc = await wpscan.enumVulByPlugin(["--url", "https://quail.co.jp/"])
+async def enum_plugin():
+    doc = await wpscan.enum_plugin("https://www.scpronet.com/wordpress/")
     data = await doc.get()
     print(data)
 
-async def enumVulByThemes():
-    doc = await wpscan.enumVulByThemes(["--url", "https://quail.co.jp/"])
+async def enum_themes():
+    doc = await wpscan.enum_themes("https://www.scpronet.com/wordpress/")
     data = await doc.get()
     print(data)
 
-async def passwordBrute():
-    doc = await wpscan.passwordBrute(["--url", "https://quail.co.jp/"])
+async def password_brute():
+    doc = await wpscan.password_brute("https://www.scpronet.com/wordpress/")
     data = await doc.get()
     print(data)
+
+async def username_brute():
+    doc = await wpscan.username_brute("https://www.scpronet.com/wordpress/")
+    data = await doc.get()
+    print(data)
+
 
 if __name__ == "__main__":
-    levrt.run(passwordBrute())
+    levrt.run(enum_themes())
